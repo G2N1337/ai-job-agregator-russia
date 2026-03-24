@@ -1,0 +1,75 @@
+[project]
+name = "ai-job-aggregator"
+version = "0.1.0"
+description = "Job matching MVP with collectors, scoring, Telegram notifications, and MCP tools."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "aiogram>=3.18.0",
+  "alembic>=1.14.1",
+  "aiosqlite>=0.21.0",
+  "apscheduler>=3.11.0",
+  "beautifulsoup4>=4.13.3",
+  "fastapi>=0.115.8",
+  "greenlet>=3.2.4",
+  "httpx>=0.28.1",
+  "mcp>=1.6.0",
+  "psycopg[binary]>=3.2.5",
+  "pydantic-settings>=2.7.1",
+  "python-slugify>=8.0.4",
+  "pyyaml>=6.0.2",
+  "rapidfuzz>=3.12.1",
+  "redis>=5.2.1",
+  "sqlalchemy>=2.0.38",
+  "structlog>=25.1.0",
+  "tenacity>=9.0.0",
+  "uvicorn[standard]>=0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.15.0",
+  "pytest>=8.3.4",
+  "pytest-asyncio>=0.25.3",
+  "pytest-cov>=6.0.0",
+  "respx>=0.22.0",
+  "ruff>=0.9.7",
+  "types-PyYAML>=6.0.12.20250915",
+]
+
+[build-system]
+requires = ["setuptools>=75.8.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "ASYNC", "RUF"]
+ignore = ["B008", "E501", "RUF001"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+disallow_any_generics = false
+disallow_untyped_defs = false
+warn_return_any = false
+disable_error_code = ["unused-ignore"]
+plugins = []
+warn_unused_configs = true
+exclude = ["src/job_matcher/db/migrations"]

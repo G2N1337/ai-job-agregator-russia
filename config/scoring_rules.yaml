@@ -1,0 +1,83 @@
+profile_name: default-fullstack
+title_weights:
+  fullstack developer: 18
+  full-stack developer: 18
+  frontend-heavy fullstack developer: 20
+  react developer: 16
+  next.js developer: 18
+  node.js developer: 16
+  nestjs developer: 16
+  typescript developer: 16
+positive_keywords:
+  typescript: 12
+  javascript: 8
+  react: 12
+  next.js: 12
+  node.js: 10
+  nestjs: 10
+  postgresql: 6
+  redis: 5
+  docker: 5
+  prisma: 5
+  graphql: 5
+  tailwind: 4
+  shadcn/ui: 4
+  rabbitmq: 4
+  kafka: 4
+  aws: 5
+  serverless: 5
+  ecommerce: 6
+  e-commerce: 6
+  marketplace: 6
+  fintech: 6
+  saas: 5
+  analytics: 5
+  telegram mini app: 5
+  api integrations: 5
+  performance optimization: 6
+negative_keywords:
+  1c: -30
+  bitrix: -30
+  php: -12
+  laravel: -12
+  symfony: -10
+  spring boot: -18
+  java backend: -18
+  qa: -35
+  manual testing: -35
+  devops: -18
+  sre: -18
+  technical support: -25
+  support engineer: -25
+remote_mode_weights:
+  remote: 10
+  hybrid: 4
+  office: -15
+  unknown: 0
+seniority_weights:
+  intern: -30
+  junior: -20
+  middle: 10
+  middle_plus: 12
+  strong_middle: 13
+  upper_middle: 12
+  senior: 2
+  lead: -12
+  head: -25
+must_have_groups:
+  - label: TypeScript/React/Next.js match
+    weight: 20
+    terms:
+      - typescript
+      - react
+      - next.js
+  - label: Node.js/NestJS backend match
+    weight: 16
+    terms:
+      - node.js
+      - nestjs
+penalties:
+  office_only: -15
+  strong_seniority_mismatch: -12
+max_score: 100
+min_score: 0
