@@ -29,16 +29,31 @@ class ResilientHttpClient:
     async def close(self) -> None:
         await self._client.aclose()
 
-    async def get_json(self, url: str, params: dict[str, Any] | None = None) -> Any:
-        response = await self._request("GET", url, params=params)
+    async def get_json(
+        self,
+        url: str,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+    ) -> Any:
+        response = await self._request("GET", url, params=params, headers=headers)
         return response.json()
 
-    async def get_text(self, url: str, params: dict[str, Any] | None = None) -> str:
-        response = await self._request("GET", url, params=params)
+    async def get_text(
+        self,
+        url: str,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+    ) -> str:
+        response = await self._request("GET", url, params=params, headers=headers)
         return response.text
 
-    async def get_bytes(self, url: str, params: dict[str, Any] | None = None) -> bytes:
-        response = await self._request("GET", url, params=params)
+    async def get_bytes(
+        self,
+        url: str,
+        params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
+    ) -> bytes:
+        response = await self._request("GET", url, params=params, headers=headers)
         return response.content
 
     async def _request(

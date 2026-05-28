@@ -29,3 +29,6 @@ demo-collect:
 
 demo-seed:
 	uv run python -m job_matcher.cli seed-demo
+
+collect:
+	uv run python -m job_matcher.cli collect
